@@ -4,14 +4,36 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
+    /* Evita que Homer genere una barra de desplazamiento horizontal si la pantalla es pequeña */
+    overflow-x: hidden; 
 }
 
 .container {
     max-width: 500px;
     text-align: center;
+    z-index: 2; /* Para que el contenido quede por encima de Homer si se cruzan */
 }
 
-.logo { width: 250px; margin-bottom: 20px; }
+.logo { 
+    width: 250px; 
+    margin-bottom: 20px; 
+}
+
+/* --- ESTILOS DEL NUEVO HOMER --- */
+.homer-esquina {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px; /* Tamaño de Homer */
+    z-index: 1;
+    transition: transform 0.3s ease; /* Para la animación */
+}
+
+/* Efecto al pasar el ratón sobre Homer */
+.homer-esquina:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
+/* ------------------------------- */
 
 .card {
     background: white;
